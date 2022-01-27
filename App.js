@@ -38,8 +38,7 @@ const styles = StyleSheet.create({
   box2:{
     flexDirection: 'row',
     justifyContent: 'space-between',
-    backgroundColor: 'red',
-    width:'50%',
+    width:'30%',
   },
   t2:{
     fontSize:20,
