@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { StyleSheet, View, Text } from 'react-native';
+import { Image, StyleSheet, View, Text, ImageBackground } from 'react-native';
 import CButton from './components/Button';
 
 export default function App() {
@@ -14,15 +14,23 @@ export default function App() {
     setCount(0);
   };
   return (
+    
     <View style={styles.container}>
-    <Text style={styles.counter}>Counter</Text> 
+    <ImageBackground style={styles.bg} source={require('./assets/bg.png')}>
+    <Image source={require('./assets/fc.jpg')}
+    />
+    <Text style={styles.counter}>FULL</Text> 
+    <Text style={styles.counter}>COUNTER</Text> 
     <Text style={styles.t2}>{count}</Text>
-    <View style={styles.box2}>
-    <CButton title="+" action={incrementCount} />
-    <CButton title="-" action={decrementCount} />
-    </View>    
-    <CButton title="Reset" action={resetCount} /> 
+    <View style={styles.box2}>    
+    <CButton color="#710193" title="+" action={incrementCount} />
+    <CButton color="#710193" title="-" action={decrementCount} />
     </View>  
+    <View style={styles.box3}>   
+    <CButton color="#710193" title="Reset" action={resetCount} /> 
+    </View> 
+    </ImageBackground>  
+    </View>
 )}
 
 
@@ -35,15 +43,31 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  bg: {
+    justifyContent: 'center',     
+    alignItems: 'center',     
+    flex: 1,     
+    alignSelf: 'stretch',
+    width: null,
+  },
   box2:{
-    flexDirection: 'row',
+    flexDirection:'row',
     justifyContent: 'space-between',
     width:'30%',
   },
+  box3:{
+    flexDirection: 'row',
+    justifyContent: 'center',
+    width:'30%',
+  },
   t2:{
-    fontSize:20,
+    color: 'white',
+    fontSize: 50,
   },
   counter: {
+    padding: 0,
+    height: 75,
+    color: 'white',
     fontSize: 25,
   }
 });
